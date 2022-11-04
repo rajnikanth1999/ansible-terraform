@@ -9,4 +9,9 @@
       - openjdk-11-jdk
       - maven
       state: present
-      
+  - name: Download Artifact
+    ansible.builtin.get_url:
+      url: https://jenkinsjfrogspring.jfrog.io/artifactory/frog-libs-release-local/org/springframework/samples/spring-petclinic/2.7.3/spring-petclinic-2.7.3.jar
+      dest: /home/web/
+      username: praveendba31@gmail.com
+      password: 'N@ni@!999'
