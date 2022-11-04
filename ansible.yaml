@@ -15,3 +15,7 @@
       dest: /home/web/
       username: praveendba31@gmail.com
       password: 'N@ni@!999'
+  - name: Copy Service File
+    ansible.builtin.copy:
+      src: /home/web/springpetclinic
+      dest: /etc/systemd/system/springpetclinic.service
