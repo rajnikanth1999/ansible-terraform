@@ -5,7 +5,7 @@ resource "null_resource" "apache" {
   provisioner "remote-exec" {
     inline = [
         "sudo apt update",
-        "sudo apt-add-repository ppa:ansible/ansible",
+        "sudo apt-add-repository ppa:ansible/ansible -y",
         "sudo apt install ansible -y"
     ]
     connection {
