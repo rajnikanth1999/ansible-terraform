@@ -33,6 +33,6 @@ resource "null_resource" "service_file" {
     }
   }
   depends_on = [
-    null_resource.apache
+    null_resource.ansible
   ]
 }
