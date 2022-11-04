@@ -1,0 +1,10 @@
+---
+- name: Deploy Spring Pet Clinic
+  hosts: localhost
+  tasks:
+  - name: Update Packages
+    ansible.builtin.apt:
+      pkg: 
+      - openjdk-11-jdk
+      - maven
+      update_cache: yes
