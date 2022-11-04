@@ -7,4 +7,5 @@
       pkg: 
       - openjdk-11-jdk
       - maven
+      state: latest
       update_cache: yes
