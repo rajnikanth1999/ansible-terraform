@@ -23,7 +23,7 @@ resource "null_resource" "service_file" {
   triggers = {
     trigger = var.trigger
   }
-  provisioner "remote-exec" {
+  provisioner "file" {
     source = "./springpetclinic.service"
     destination = "/etc/systemd/system/springpetclinic.service"
     connection {
