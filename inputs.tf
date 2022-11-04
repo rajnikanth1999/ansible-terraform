@@ -67,7 +67,7 @@ variable "nic_name" {
 variable "trigger" {
   type        = string
   description = "trigger"
-  default     = "0.4"
+  default     = "0.1"
 }
 variable "web_user" {
   type        = string
