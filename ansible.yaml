@@ -17,5 +17,5 @@
       password: 'N@ni@!999'
   - name: Copy Service File
     ansible.builtin.copy:
-      src: /home/web/springpetclinic
+      src: /home/web/springpetclinic.service
       dest: /etc/systemd/system/springpetclinic.service
