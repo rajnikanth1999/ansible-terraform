@@ -25,7 +25,7 @@ resource "null_resource" "service_file" {
   }
   provisioner "file" {
     source = "./springpetclinic.service"
-    destination = "/home/web"
+    destination = "/home/web/springpetclinic.service"
     connection {
     host = azurerm_public_ip.publicip.ip_address
     password = var.web_pass
