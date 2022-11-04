@@ -6,8 +6,8 @@ resource "null_resource" "ansible" {
     inline = [
         "sudo apt update",
         "sudo apt-add-repository ppa:ansible/ansible -y",
-        "sudo apt install ansible -y",
-        "wget --user=praveendba31@gmail.com --password='N@ni@!999'  https://jenkinsjfrogspring.jfrog.io/artifactory/frog-libs-release-local/org/springframework/samples/spring-petclinic/2.7.3/spring-petclinic-2.7.3.jar"
+        "sudo apt install ansible -y"
+        # "wget --user=praveendba31@gmail.com --password='N@ni@!999'  https://jenkinsjfrogspring.jfrog.io/artifactory/frog-libs-release-local/org/springframework/samples/spring-petclinic/2.7.3/spring-petclinic-2.7.3.jar"
     ]
     connection {
     host = azurerm_public_ip.publicip.ip_address
