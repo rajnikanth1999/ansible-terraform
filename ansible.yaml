@@ -4,8 +4,6 @@
   tasks:
   - name: Update Packages
     ansible.builtin.apt:
-      pkg: 
-      - openjdk-11-jdk
-      - maven
-      state: latest
+      name: openjdk-11-jdk
+      state: present
       update_cache: yes
