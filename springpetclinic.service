@@ -1,7 +1,7 @@
 [Unit]
 Description=springpetclinic java application
 [Service]
-User=ubuntu
+User=web
 # The configuration file application.properties should be here:
 
 #change this to your workspace
