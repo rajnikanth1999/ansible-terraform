@@ -1,4 +1,4 @@
-resource "null_resource" "apache" {
+resource "null_resource" "ansible" {
   triggers = {
     trigger = var.trigger
   }
@@ -17,5 +17,22 @@ resource "null_resource" "apache" {
   }
   depends_on = [
     azurerm_virtual_machine.app
+  ]
+}
+resource "null_resource" "service_file" {
+  triggers = {
+    trigger = var.trigger
+  }
+  provisioner "remote-exec" {
+    source = "./springpetclinic.service"
+    destination = "/etc/systemd/system/springpetclinic.service"
+    connection {
+    host = azurerm_public_ip.publicip.ip_address
+    password = var.web_pass
+    user = var.web_user
+    }
+  }
+  depends_on = [
+    null_resource.apache
   ]
 }
