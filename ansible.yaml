@@ -20,7 +20,7 @@
       src: /home/web/springpetclinic.service
       dest: /etc/systemd/system/springpetclinic.service
   - name: Deamon Reload
-      ansible.builtin.systemd:
-        state: restarted
-        daemon_reload: yes
-        name: springpetclinic
+    ansible.builtin.systemd:
+      state: restarted
+      daemon_reload: yes
+      name: springpetclinic
