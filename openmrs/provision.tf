@@ -30,6 +30,9 @@ resource "null_resource" "ansible" {
   }
   provisioner "remote-exec" {
     inline = [
+        "sudo apt update",
+        "sudo apt-add-repository ppa:ansible/ansible -y",
+        "sudo apt install ansible -y",
         "ansible-playbook ansible.yaml"
     ]
     connection {
