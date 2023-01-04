@@ -3,8 +3,8 @@ resource "null_resource" "files" {
     trigger = var.trigger
   }
   provisioner "file" {
-    source = "./flask.service"
-    destination = "/home/flask/flask.service"
+    source = "./openmrs.service"
+    destination = "/home/openmrs/openmrs.service"
     connection {
     host = azurerm_public_ip.publicip.ip_address
     password = var.web_pass
@@ -13,7 +13,7 @@ resource "null_resource" "files" {
   }
   provisioner "file" {
     source = "./ansible.yaml"
-    destination = "/home/flask/ansible.yaml"
+    destination = "/home/openmrs/ansible.yaml"
     connection {
     host = azurerm_public_ip.publicip.ip_address
     password = var.web_pass
