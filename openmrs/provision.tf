@@ -3,8 +3,8 @@ resource "null_resource" "files" {
     trigger = var.trigger
   }
   provisioner "file" {
-    source = "./openmrs.service"
-    destination = "/home/openmrs/openmrs.service"
+    source = "./flask.service"
+    destination = "/home/flask/flask.service"
     connection {
     host = azurerm_public_ip.publicip.ip_address
     password = var.web_pass
@@ -13,7 +13,7 @@ resource "null_resource" "files" {
   }
   provisioner "file" {
     source = "./ansible.yaml"
-    destination = "/home/openmrs/ansible.yaml"
+    destination = "/home/flask/ansible.yaml"
     connection {
     host = azurerm_public_ip.publicip.ip_address
     password = var.web_pass
@@ -30,10 +30,6 @@ resource "null_resource" "ansible" {
   }
   provisioner "remote-exec" {
     inline = [
-        "sudo apt update",
-        "sudo apt-add-repository ppa:ansible/ansible -y",
-        "sudo apt install ansible -y",
-        # "wget --user=praveendba31@gmail.com --password='N@ni@!999'  https://jenkinsjfrogspring.jfrog.io/artifactory/frog-libs-release-local/org/springframework/samples/spring-petclinic/2.7.3/spring-petclinic-2.7.3.jar"
         "ansible-playbook ansible.yaml"
     ]
     connection {

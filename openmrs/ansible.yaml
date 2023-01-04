@@ -1,0 +1,28 @@
+---
+- name: Update Packages
+  hosts: localhost
+  become: yes
+  tasks:
+  - name: Update Packages
+    ansible.builtin.apt:
+      pkg: 
+      - openjdk-11-jdk
+      - maven
+      state: present
+      update_cache: yes
+  - name: Cloning git repository
+    ansible.builtin.git:
+      repo: 'https://github.com/openmrs/openmrs-core.git'
+      dest: /home/openmrs/openmrs-core
+      clone: yes
+  - name: Maven Build command
+    ansible.builtin.command: mvn -f /home/openmrs/openmrs-core/pom.xml clean install
+  - name: Copy Service File
+    ansible.builtin.copy:
+      src: /home/openmrs/openmrs.service
+      dest: /etc/systemd/system/openmrs.service
+  - name: Deamon Reload
+    ansible.builtin.systemd:
+      state: started
+      daemon_reload: yes
+      name: openmrs

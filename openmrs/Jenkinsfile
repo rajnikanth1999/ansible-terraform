@@ -1,0 +1,16 @@
+pipeline {
+    agent any
+    triggers { pollSCM('* * * * *') }
+    stages {
+        stage('Terraform apply') {
+            steps {
+                sh '''
+                    cd ./flask
+                    terraform init
+                    terraform validate
+                    terraform destroy -auto-approve -var="web_pass=Password@1234" -var="trigger=${BUILD_NUMBER}"
+                '''
+            }
+        }
+    }
+}
