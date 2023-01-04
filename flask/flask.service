@@ -5,7 +5,7 @@ User=flask
 # The configuration file application.properties should be here:
 
 #change this to your workspace
-WorkingDirectory=/home/flask/flask
+WorkingDirectory=/home/flask/flask-hello-world
 
 #path to executable.
 #executable is a bash script which calls jar file
