@@ -25,6 +25,11 @@
       repo: 'https://github.com/Sysnove/flask-hello-world.git'
       dest: /home/flask/flask-hello-world
       clone: yes
+  - name: Move hello.py to app.py
+    ansible.builtin.copy:
+      src: /home/flask/flask-hello-world/hello.py
+      dest: /home/flask/flask-hello-world/app.py
+      backup: yes
   - name: Copy Service File
     ansible.builtin.copy:
       src: /home/flask/flask.service
