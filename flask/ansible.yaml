@@ -20,3 +20,8 @@
         - python3-pip
         - python3-flask
       state: present
+  - name: Cloning git repository
+    ansible.builtin.git:
+      repo: 'https://github.com/Sysnove/flask-hello-world.git'
+      dest: /home/flask/
+      clone: yes
