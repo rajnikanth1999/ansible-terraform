@@ -23,5 +23,5 @@
   - name: Cloning git repository
     ansible.builtin.git:
       repo: 'https://github.com/Sysnove/flask-hello-world.git'
-      dest: /home/flask/
+      dest: /home/flask/flask-hello-world
       clone: yes
