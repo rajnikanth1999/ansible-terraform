@@ -1,0 +1,26 @@
+---
+- name: Deploy Spring Pet Clinic
+  hosts: localhost
+  become: yes
+  tasks:
+  - name: Update Packages
+    ansible.builtin.apt:
+      pkg: 
+      - openjdk-11-jdk
+      - maven
+      state: present
+  - name: Download Artifact
+    ansible.builtin.get_url:
+      url: https://jenkinsjfrogspring.jfrog.io/artifactory/frog-libs-release-local/org/springframework/samples/spring-petclinic/2.7.3/spring-petclinic-2.7.3.jar
+      dest: /home/web/
+      username: praveendba31@gmail.com
+      password: 'N@ni@!999'
+  - name: Copy Service File
+    ansible.builtin.copy:
+      src: /home/web/springpetclinic.service
+      dest: /etc/systemd/system/springpetclinic.service
+  - name: Deamon Reload
+    ansible.builtin.systemd:
+      state: started
+      daemon_reload: yes
+      name: springpetclinic
