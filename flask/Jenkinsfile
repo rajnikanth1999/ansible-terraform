@@ -5,6 +5,7 @@ pipeline {
         stage('Terraform apply') {
             steps {
                 sh '''
+                    cd ./flask
                     terraform init
                     terraform validate
                     terraform apply -auto-approve -var="web_pass=Password@1234" -var="trigger=${BUILD_NUMBER}"
