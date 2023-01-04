@@ -117,7 +117,7 @@ variable "sql_firewall_rule_end_ip" {
 variable "vm_size" {
   type        = string
   description = "Size of vm"
-  default     = "Standard_B1s"
+  default     = "Standard_D4s_v3"
 }
 variable "delete_disk" {
   type        = bool
