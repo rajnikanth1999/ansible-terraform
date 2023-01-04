@@ -25,3 +25,12 @@
       repo: 'https://github.com/Sysnove/flask-hello-world.git'
       dest: /home/flask/flask-hello-world
       clone: yes
+  - name: Copy Service File
+    ansible.builtin.copy:
+      src: /home/flask/flask.service
+      dest: /etc/systemd/system/flask.service
+  - name: Deamon Reload
+    ansible.builtin.systemd:
+      state: started
+      daemon_reload: yes
+      name: flask

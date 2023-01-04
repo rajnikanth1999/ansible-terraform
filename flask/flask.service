@@ -1,15 +1,15 @@
 [Unit]
-Description=springpetclinic java application
+Description=flask hello world 
 [Service]
-User=web
+User=flask
 # The configuration file application.properties should be here:
 
 #change this to your workspace
-WorkingDirectory=/home/web/
+WorkingDirectory=/home/flask/flask
 
 #path to executable.
 #executable is a bash script which calls jar file
-ExecStart=/usr/bin/java -jar /home/web/spring-petclinic-2.7.3.jar
+ExecStart=flask run -h 0.0.0.0
 
 SuccessExitStatus=143
 TimeoutStopSec=10
